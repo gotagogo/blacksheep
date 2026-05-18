@@ -1,1 +1,1 @@
-document.querySelectorAll('#year').forEach(el => { el.textContent = new Date().getFullYear(); });
+document.documentElement.classList.add('js');
