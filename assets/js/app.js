@@ -1,9 +1,11 @@
-const lines={zh:["別人是羊群效應，我是羊群事故。","黑羊不是害群之馬，只是比較早發現這群有問題。","當所有羊都往懸崖走時，黑羊只是唯一踩煞車的那隻。","白羊負責服從，黑羊負責故事性。","我不是不合群，我只是合不了那麼蠢的群。","黑羊最大的錯，就是活得太有個性。","別怕當黑羊，至少拍團體照時找得到你。","羊群討厭黑羊，通常是因為牠沒一起裝乖。","別人循規蹈矩，我循導航失敗。","黑羊：一半是害群之馬，一半是整群唯一清醒的羊。","不是每隻離隊的羊都迷路，有些只是受不了排隊。","如果你覺得我是害群之馬，可能是你的群太脆弱。"],en:["I’m not anti-social. I’m just flock independent.","Every family has a black sheep. Some of us turned it into a brand.","Normal sheep follow the flock. Black sheep follow Wi‑Fi.","Too weird for the white sheep. Too fluffy for the wolves.","Black Sheep — because fitting in is overrated.","The flock said ‘behave.’ The black sheep heard ‘be legendary.’","Warning: may cause uncomfortable levels of individuality.","Not lost. Just grazing outside the algorithm.","The black sheep is usually the only one asking questions.","Be the black sheep. The white ones are impossible to tell apart.","Some sheep count sheep. Black sheep count escape routes.","If I’m the problem, why is the flock so boring?"]};
-let lang=localStorage.getItem('bs-lang')||'zh';
-function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
-function applyLang(){document.documentElement.lang=lang==='zh'?'zh-Hant':'en';document.querySelectorAll('[data-zh]').forEach(el=>{el.textContent=el.dataset[lang]});document.getElementById('langToggle').textContent=lang==='zh'?'EN':'中文';renderRandom();}
-function renderRandom(){const pool=shuffle(lines[lang]);document.getElementById('heroQuote').textContent=pool[0];document.getElementById('tickerText').textContent=pool[1];const grid=document.getElementById('jokeGrid');grid.innerHTML='';pool.slice(2,8).forEach((text,i)=>{const card=document.createElement('article');card.className='joke-card';card.innerHTML=`<div class="num">#${String(i+1).padStart(2,'0')}</div><p>${text}</p>`;grid.appendChild(card);});}
-document.getElementById('langToggle').addEventListener('click',()=>{lang=lang==='zh'?'en':'zh';localStorage.setItem('bs-lang',lang);applyLang();});
-document.getElementById('refreshMix').addEventListener('click',renderRandom);
-document.getElementById('year').textContent=new Date().getFullYear();
-applyLang();
+function render(){
+  const grid=document.getElementById('itemsGrid'); const empty=document.getElementById('emptyState');
+  const q=(document.getElementById('search').value||'').toLowerCase(); const gf=document.getElementById('genderFilter').value;
+  const items=getItems().filter(i=>{
+    const text=[i.title,i.brand,i.summary,i.size,i.gender,i.condition].join(' ').toLowerCase();
+    return (!q || text.includes(q)) && (!gf || i.gender===gf);
+  });
+  grid.innerHTML=items.map(i=>`<article class='card'><a href='item.html?id=${encodeURIComponent(i.id)}'><img src='${firstImage(i)}' alt='${i.title}'><div class='card-body'><div class='badge'>${i.brand||'未填品牌'}</div><h2>${i.title}</h2><p>${i.summary||''}</p><div class='meta'><span>${money(i.price)}</span><span>${i.size||'大小未填'}</span><span>${i.gender||'中性'}</span></div></div></a></article>`).join('');
+  empty.classList.toggle('hidden', items.length!==0);
+}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('search').addEventListener('input',render);document.getElementById('genderFilter').addEventListener('change',render);render();});

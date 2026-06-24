@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>管理員 | Black Sheep</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="logo">🐑</span><span>Black Sheep</span></a>
+  <nav><a href="index.html">全部物品</a><a href="admin.html">管理員</a></nav>
+</header>
+<main class="container admin">
+  <section id="loginPanel" class="panel narrow">
+    <h1>管理員登入</h1>
+    <p class="muted">GitHub Pages 是靜態網站，這裡是前端本機管理模式。</p>
+    <input id="username" placeholder="帳號" autocomplete="username">
+    <input id="password" type="password" placeholder="密碼" autocomplete="current-password">
+    <button id="loginBtn">登入</button>
+    <p class="hint">預設：admin / change-me-now</p>
+  </section>
+  <section id="adminPanel" class="hidden">
+    <div class="admin-head"><h1>物品管理</h1><button id="logoutBtn" class="secondary">登出</button></div>
+    <form id="itemForm" class="panel form-grid">
+      <input type="hidden" id="itemId">
+      <label>標題<input id="title" required placeholder="例如 Burton AK Jacket"></label>
+      <label>品牌<input id="brand" required placeholder="例如 Burton"></label>
+      <label>價格 NZ$<input id="price" type="number" min="0" step="1" placeholder="400"></label>
+      <label>大小<input id="size" placeholder="M / 153cm / US7"></label>
+      <label>適用性別<select id="gender"><option>中性</option><option>男</option><option>女</option><option>兒童</option></select></label>
+      <label>狀態<select id="condition"><option>二手良好</option><option>近新</option><option>正常使用痕跡</option><option>需要維修/保養</option></select></label>
+      <label class="wide">簡介<textarea id="summary" rows="4" placeholder="簡短介紹物品特色、品相、適合誰..."></textarea></label>
+      <label class="wide">圖片上傳<input id="images" type="file" accept="image/*" multiple><span class="hint">圖片會轉成 Base64 存在此瀏覽器 localStorage。</span></label>
+      <div class="wide actions"><button type="submit">儲存物品</button><button type="button" id="resetBtn" class="secondary">清空表格</button><button type="button" id="exportBtn" class="secondary">匯出資料</button><label class="importBtn">匯入資料<input id="importInput" type="file" accept="application/json"></label></div>
+    </form>
+    <section id="adminList" class="admin-list"></section>
+  </section>
+</main>
+<footer>© <span id="year"></span> Black Sheep · www.blacksheep.co.nz</footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

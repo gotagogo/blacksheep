@@ -1,85 +1,35 @@
 <!doctype html>
-<html lang="zh-Hant" data-lang="zh">
+<html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Black Sheep 黑羊 | www.blacksheep.co.nz</title>
-  <meta name="description" content="Black Sheep — cute, funny, bilingual static website with black sheep jokes, refresh-random content, and cartoon illustrations." />
-  <meta property="og:title" content="Black Sheep 黑羊" />
-  <meta property="og:description" content="不合群但超有梗的黑羊網站。Refresh 每次都有新金句、新表情、新內容。" />
-  <meta property="og:image" content="assets/img/logo-3d.png" />
-  <link rel="icon" href="assets/img/logo-3d.png" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Black Sheep 二手好物 | www.blacksheep.co.nz</title>
+  <meta name="description" content="Black Sheep 個人物品售賣網站，滑雪、單板、衣物與生活好物。">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Black Sheep home">
-      <img src="assets/img/logo-3d.png" alt="Black Sheep cartoon logo" />
-      <span>black sheep</span>
-    </a>
-    <nav class="nav">
-      <a href="#jokes" data-zh="搞笑金句" data-en="Jokes">搞笑金句</a>
-      <a href="#story" data-zh="黑羊精神" data-en="Spirit">黑羊精神</a>
-      <a href="#stickers" data-zh="表情包" data-en="Stickers">表情包</a>
-      <button id="langToggle" class="pill-button" type="button">EN</button>
-      <button id="refreshMix" class="pill-button dark" type="button" data-zh="換一批" data-en="Shuffle">換一批</button>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow" data-zh="www.blacksheep.co.nz" data-en="www.blacksheep.co.nz">www.blacksheep.co.nz</p>
-        <h1 data-zh="不合群，也可以很可愛。" data-en="Standing out can be ridiculously cute.">不合群，也可以很可愛。</h1>
-        <p class="lead" data-zh="這是一個關於 Black Sheep 的小宇宙：有害群之馬的幽默、有 black seep 的漏墨梗，還有每次刷新都不太一樣的黑羊金句。" data-en="A tiny universe for Black Sheep: the rebel of the flock, the accidental black seep, and a fresh set of jokes every time you refresh.">這是一個關於 Black Sheep 的小宇宙：有害群之馬的幽默、有 black seep 的漏墨梗，還有每次刷新都不太一樣的黑羊金句。</p>
-        <div class="hero-actions">
-          <a class="primary" href="#jokes" data-zh="看今天的黑羊金句" data-en="Read today’s sheep wisdom">看今天的黑羊金句</a>
-          <a class="secondary" href="#story" data-zh="了解黑羊精神" data-en="Meet the black sheep spirit">了解黑羊精神</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <img src="assets/img/logo-3d.png" alt="3D cartoon black sheep" />
-        <div class="speech" id="heroQuote">黑羊不是害群之馬，只是比較早發現這群有問題。</div>
-      </div>
-    </section>
-
-    <section class="ticker" aria-label="random black sheep lines">
-      <span id="tickerText">Loading black sheep wisdom...</span>
-    </section>
-
-    <section id="jokes" class="section">
-      <div class="section-title">
-        <p data-zh="刷新會變" data-en="Refresh-friendly">刷新會變</p>
-        <h2 data-zh="黑羊搞笑金句" data-en="Black Sheep One-liners">黑羊搞笑金句</h2>
-      </div>
-      <div class="joke-grid" id="jokeGrid"></div>
-    </section>
-
-    <section id="story" class="section split">
-      <div class="panel black-panel">
-        <h2 data-zh="害群之馬？不，是群體壓力偵測器。" data-en="Bad sheep? More like a groupthink detector.">害群之馬？不，是群體壓力偵測器。</h2>
-        <p data-zh="Black Sheep 不是故意唱反調。牠只是當大家都往同一個方向走時，忍不住問一句：『你們確定嗎？』" data-en="Black Sheep is not trying to be difficult. It simply asks, “Are we sure?” when the whole flock starts marching in one direction.">Black Sheep 不是故意唱反調。牠只是當大家都往同一個方向走時，忍不住問一句：『你們確定嗎？』</p>
-      </div>
-      <div class="panel seep-panel">
-        <h2 data-zh="Black Seep：黑色幽默正在外漏。" data-en="Black Seep: the dark humour is leaking out.">Black Seep：黑色幽默正在外漏。</h2>
-        <p data-zh="有時候不是 black sheep，是 black seep：創意、吐槽、怪想法一點一點滲出來，最後整個羊圈都被染得很有個性。" data-en="Sometimes it is not just a black sheep — it is a black seep: creativity, sarcasm, and odd ideas slowly leaking until the whole flock gets more interesting.">有時候不是 black sheep，是 black seep：創意、吐槽、怪想法一點一點滲出來，最後整個羊圈都被染得很有個性。</p>
-      </div>
-    </section>
-
-    <section id="stickers" class="section stickers">
-      <div class="section-title">
-        <p data-zh="表情與動作" data-en="Expressions & poses">表情與動作</p>
-        <h2 data-zh="一隻羊，很多戲。" data-en="One sheep, many moods.">一隻羊，很多戲。</h2>
-      </div>
-      <img src="assets/img/black-sheep-stickers.png" alt="Black sheep sticker sheet with different expressions and actions" />
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>© <span id="year"></span> Black Sheep · www.blacksheep.co.nz</p>
-    <p data-zh="為不合群但有趣的人而生。" data-en="Made for people who stand out and make it fun.">為不合群但有趣的人而生。</p>
-  </footer>
-
-  <script src="assets/js/app.js"></script>
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="logo">🐑</span><span>Black Sheep</span></a>
+  <nav><a href="index.html">全部物品</a><a href="admin.html">管理員</a></nav>
+</header>
+<section class="hero">
+  <div>
+    <p class="eyebrow">www.blacksheep.co.nz</p>
+    <h1>二手個人物品出售</h1>
+    <p>有便宜有貴，品相都不同。找到喜歡的就直接聯絡我。</p>
+  </div>
+  <div class="hero-card">害群之馬，也有好貨。</div>
+</section>
+<main class="container">
+  <div class="toolbar">
+    <input id="search" placeholder="搜尋品牌、簡介、大小、性別...">
+    <select id="genderFilter"><option value="">全部性別</option><option>男</option><option>女</option><option>中性</option><option>兒童</option></select>
+  </div>
+  <section id="itemsGrid" class="grid"></section>
+  <p id="emptyState" class="empty hidden">暫時沒有物品。</p>
+</main>
+<footer>© <span id="year"></span> Black Sheep · www.blacksheep.co.nz</footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
